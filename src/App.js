@@ -1,7 +1,7 @@
 import React from 'react';
-import MainPage from "./MainPage";
+import MainPage from "./components/MainPage";
 import './App.css';
-import * as appAPI from './BooksAPI'
+import * as appAPI from './components/BooksAPI'
 
 class MyReads extends React.Component {
 	state = {
@@ -16,10 +16,14 @@ class MyReads extends React.Component {
 	getAllBooks() {
 		appAPI.getAll().then((books) => this.setState({books:books}));
 	}
+
+	updateBooks(book, shelf) {
+		appAPI.update(book, shelf).then(() => this.getAllBooks());
+}
 	render() {
 		return (
 			<div className="app">
-				<MainPage books={this.state.books}/>
+				<MainPage books={this.state.books} onChange={this.updateBooks} />
 			</div>
 		)
 	}
