@@ -1,14 +1,28 @@
-import React, {Component} from "react";
+import React from 'react';
+import MainPage from "./MainPage";
+import './App.css';
+import * as appAPI from './BooksAPI'
 
-class  App extends Component {
-  render() {
-    return (
-    <div className="App">
-      <h1>My-Reads App goes here</h1>
-    </div>
-  );
+class MyReads extends React.Component {
+	state = {
+		books: [],
+	}
+
+	componentDidMount() {
+		this.getAllBooks();
+
+	}
+
+	getAllBooks() {
+		appAPI.getAll().then((books) => this.setState({books:books}));
+	}
+	render() {
+		return (
+			<div className="app">
+				<MainPage books={this.state.books}/>
+			</div>
+		)
+	}
 }
-  }
 
-
-export default App;
+export default MyReads;
