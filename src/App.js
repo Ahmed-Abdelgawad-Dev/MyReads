@@ -19,7 +19,7 @@ class MyReads extends React.Component {
 	}
 
 	changeBookStatus = (e, book) => {
-		const shelf = e.target.name;
+		const shelf = e.target.value;
 		if(this.state.books) {
 			API.update(book, shelf).then(() => {
 				book.shelf = shelf;

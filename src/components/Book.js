@@ -13,7 +13,6 @@ const Book = ({book, changeBookStatus}) => {
 	              backgroundImage: `url("${book.imageLinks.thumbnail}")`
             }}>
             </div>
-
 	        <div className="book-shelf-changer">
               <select defaultValue={book.shelf} onChange={(e)=>changeBookStatus(e, book)}>
                 <option value="none" disabled>Move to...</option>
