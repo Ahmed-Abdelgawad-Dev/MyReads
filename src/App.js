@@ -1,7 +1,8 @@
 import React from 'react';
+import {Route} from "react-router-dom";
 import MainPage from "./components/MainPage";
 import './App.css';
-import * as appAPI from './components/BooksAPI'
+import * as API from './components/BooksAPI';
 
 class MyReads extends React.Component {
 	state = {
@@ -14,18 +15,31 @@ class MyReads extends React.Component {
 	}
 
 	getAllBooks() {
-		appAPI.getAll().then((books) => this.setState({books:books}));
+		API.getAll().then((books) => this.setState({books:books}));
 	}
 
-	updateBooks(book, shelf) {
-		appAPI.update(book, shelf).then(() => this.getAllBooks());
-}
+	changeBookStatus = (e, book) => {
+		const shelf = e.target.name;
+		if(this.state.books) {
+			API.update(book, shelf).then(() => {
+				book.shelf = shelf;
+				this.setState(state => ({
+					books: state.books.filter(bookItem => bookItem.id !== book.id).concat([book])
+				}))
+			})
+		}
+	}
+
 	render() {
-		return (
-			<div className="app">
-				<MainPage books={this.state.books} onChange={this.updateBooks} />
+		return(
+			<div className='app'>
+				<Route exact path='/' render={() => (
+					<MainPage
+						books={this.state.books}
+						changeBookStatus={this.changeBookStatus} />
+				)}/>
 			</div>
-		)
+		);
 	}
 }
 
