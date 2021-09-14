@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import MainPage from "./components/MainPage";
+import SearchPage from "./components/SearchPage";
 import './App.css';
 import * as API from './components/BooksAPI';
 
@@ -38,6 +39,10 @@ class MyReads extends React.Component {
 						books={this.state.books}
 						changeBookStatus={this.changeBookStatus} />
 				)}/>
+				<Route exact path="/search" render={({ history }) => (
+					<SearchPage books={this.state.books}
+								changeBookStatus={this.changeBookStatus}/>
+				)} />
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 import React from 'react'
-const Book = ({book, changeBookStatus}) => {
+const Book = ({book, changeBookStatus, myBook}) => {
 	// console.log(book)
   return (
       <li key={book.id}>
@@ -14,7 +14,7 @@ const Book = ({book, changeBookStatus}) => {
             }}>
             </div>
 	        <div className="book-shelf-changer">
-              <select defaultValue={book.shelf} onChange={(e)=>changeBookStatus(e, book)}>
+              <select defaultValue={(book.shelf) ? book.shelf : "none"} onChange={(e)=>changeBookStatus(e, book)}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
