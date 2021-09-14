@@ -39,9 +39,10 @@ class MyReads extends React.Component {
 						books={this.state.books}
 						changeBookStatus={this.changeBookStatus} />
 				)}/>
-				<Route exact path="/search" render={({ history }) => (
-					<SearchPage books={this.state.books}
-								changeBookStatus={this.changeBookStatus}/>
+				<Route exact path="/search" render={() => (
+					<SearchPage
+						books={this.state.books}
+						changeBookStatus={this.changeBookStatus}/>
 				)} />
 			</div>
 		);
