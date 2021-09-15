@@ -42,7 +42,8 @@ const Book = ({ book, changeBookStatus, searchShelf }) => {
 
 Book.propTypes = {
   book: PropTypes.object,
-  changeBookStatus: PropTypes.func
+  changeBookStatus: PropTypes.func,
+  searchShelf: PropTypes.string
 }
 
 export default Book;

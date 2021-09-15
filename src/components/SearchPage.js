@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 // SearchPage class component with another
 // state holds its books and query string keyword
 class SearchPage extends React.Component {
-    static PropTypes = {
+    static propTypes = {
         booksAfterSearch: PropTypes.array,
         changeBookStatus: PropTypes.func,
         queryEqualStateSearch: PropTypes.func

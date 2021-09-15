@@ -4,9 +4,16 @@ import MainPage from "./components/MainPage";
 import SearchPage from "./components/SearchPage";
 import './App.css';
 import * as API from './components/BooksAPI';
+import PropTypes from 'prop-types'
+
 // Class component has a lifted state items that going to change
 // and passed to different components
 class MyReads extends React.Component {
+	static propTypes = {
+		books: PropTypes.array,
+		changeBookStatus: PropTypes.func
+    }
+	
 	state = {
 		books: [],
 	}
