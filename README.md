@@ -13,11 +13,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 ### `npm install` 
-###then
+then
 ### `yarn start`
 
-###Note: 
-#####This App is using same styling from the Audacity starter project with few tweaks.
+Note: 
+This App is using same styling from the Audacity starter project with few tweaks.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
