@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from "./Book";
+// import PropTypes from 'prop-types';
 
 // Although I can call it BooksList but named it shelf to
 // make more sense from the name in the MainPage component.
@@ -27,5 +28,12 @@ const Shelf = ({books, title, changeBookStatus}) => {
 		</div>
 	);
 }
+//
+// Shelf.PropTypes = {
+// 	books: PropTypes.array,
+// 	changeBookStatus: PropTypes.func,
+// 	title: PropTypes.string
+//
+// }
 
 export default Shelf;

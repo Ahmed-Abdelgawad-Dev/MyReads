@@ -1,7 +1,12 @@
 import React from 'react'
+// import PropTypes from 'prop-types';
 
 // Destructuring props in a functional component
 const Book = ({ book, changeBookStatus }) => {
+  // static PropTypes = {
+  //   book: PropTypes.object,
+  //   changeBookStatus: PropTypes.func
+  // }
   // console.log(book);
   return (
     <div>
