@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Shelf from './Shelf';
 import '../App.css'
 
+
 // None class component as it has no changeable state date.
 // destructured props passed so no need to use {this.props}
 const MainPage = ({books, changeBookStatus}) =>  {
@@ -13,7 +14,7 @@ const MainPage = ({books, changeBookStatus}) =>  {
         </div>
         <div className="list-books-content">
           <div>
-              {/* Three Shelvies with with different props values  */}
+              {/* 3*Shelf with with different props values  */}
             <Shelf
                 changeBookStatus={changeBookStatus}
                 books={books.filter((book) => (book.shelf === "currentlyReading"))}
