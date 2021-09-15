@@ -71,6 +71,7 @@ class SearchPage extends React.Component {
                       <Book
                         book={searchedBook}
                         changeBookStatus={this.props.changeBookStatus}
+                        searchShelf={shelf}
                       />
                     </div>
                   );

@@ -2,7 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types';
 
 // Destructuring props in a functional component
-const Book = ({ book, changeBookStatus }) => {
+const Book = ({ book, changeBookStatus, searchShelf }) => {
   // static PropTypes = {
   //   book: PropTypes.object,
   //   changeBookStatus: PropTypes.func
@@ -24,7 +24,7 @@ const Book = ({ book, changeBookStatus }) => {
             {/* Book shelf changer division */}
             <div className="book-shelf-changer">
               <select
-                defaultValue={(book.shelf) ? book.shelf : "none"}
+                defaultValue={(book.shelf) ? book.shelf : searchShelf}
                 onChange={(e) => changeBookStatus(e, book)}
               >
                 <option value="none" disabled>Move to...</option>
