@@ -1,6 +1,8 @@
 import React from 'react'
+
+// Destructuring props in a functional component
 const Book = ({ book, changeBookStatus }) => {
-  // console.log(book)
+  // console.log(book);
   return (
     <div>
       <li key={book.id}>
@@ -14,6 +16,7 @@ const Book = ({ book, changeBookStatus }) => {
                 backgroundImage: `url("${book.imageLinks && book.imageLinks.thumbnail}")`
               }}>
             </div>
+            {/* Book shelf changer division */}
             <div className="book-shelf-changer">
               <select
                 defaultValue={(book.shelf) ? book.shelf : "none"}
