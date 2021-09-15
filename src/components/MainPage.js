@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Shelf from './Shelf';
 import '../App.css'
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 
 // None class component as it has no changeable state date.
@@ -40,9 +40,9 @@ const MainPage = ({books, changeBookStatus}) =>  {
     )
 }
 
-// MainPage.PropTypes = {
-// 	books: PropTypes.array,
-// 	changeBookStatus: PropTypes.func,
-// }
+MainPage.propTypes = {
+	books: PropTypes.array,
+	changeBookStatus: PropTypes.func,
+}
 
 export default MainPage;

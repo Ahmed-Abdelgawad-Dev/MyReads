@@ -2,16 +2,16 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Book from './Book';
 import * as API from './BooksAPI'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 // SearchPage class component with another
 // state holds its books and query string keyword
 class SearchPage extends React.Component {
-    // static PropTypes = {
-    //     booksAfterSearch: PropTypes.array,
-    //     changeBookStatus: PropTypes.func,
-    //     queryEqualStateSearch: PropTypes.func
-    // }
+    static PropTypes = {
+        booksAfterSearch: PropTypes.array,
+        changeBookStatus: PropTypes.func,
+        queryEqualStateSearch: PropTypes.func
+    }
     state = {
         query: '',
         booksAfterSearch: []
@@ -19,7 +19,7 @@ class SearchPage extends React.Component {
     // A function to handle search query
     queryEqualStateSearch = (query) => {
         // We set the state to query's value with no spaces
-        this.setState({query: query.trim()});
+        this.setState({query: query});
         // Search books if there is a query keyword
         if(query) {
             API.search(query).then(booksAfterSearch => {
