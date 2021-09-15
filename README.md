@@ -1,5 +1,10 @@
-![Image of Autocrat](myReads_logo.png)
-![Image of Autocrat](logo2.png)
+![Image of Autocrat](src/icons/logos/myReads_logo.png)
+
+[comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo2.png&#41;)
+
+[comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo3.png&#41;)
+![Image of Autocrat](src/icons/logos/logo4.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
