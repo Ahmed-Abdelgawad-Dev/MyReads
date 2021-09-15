@@ -3,7 +3,8 @@
 [comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo2.png&#41;)
 
 [comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo3.png&#41;)
-![Image of Autocrat](src/icons/logos/logo4.png)
+
+[comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo4.png&#41;)
 
 # Getting Started with Create React App
 
