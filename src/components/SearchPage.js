@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Link} from "react-router-dom";
+// import { debounce, throttle } from 'throttle-debounce';
+
 import Book from './Book';
 import * as API from './BooksAPI'
 import PropTypes from 'prop-types'
@@ -16,13 +18,21 @@ class SearchPage extends React.Component {
         query: '',
         booksAfterSearch: []
     }
-    // A function to handle search query
-    queryEqualStateSearch = (query) => {
+
+
+
+    queryEqualStateSearch = useMemo(
+    () => debounce(this.myCallBack, 300)
+  , []);
+
+    // A function to handle search query with throttle-debounce package
+    myCallBack = ((query) => {
         // We set the state to query's value with no spaces
-        this.setState({query: query});
         // Search books if there is a query keyword
         if(query) {
-            API.search(query).then(booksAfterSearch => {
+
+            this.setState({query: query});
+                API.search(query).then(booksAfterSearch => {
                 //No error
                 if (!booksAfterSearch.error) {
                     // Put results in the state
@@ -38,8 +48,9 @@ class SearchPage extends React.Component {
             // make state empty in case of no query keyword
             this.setState({ booksAfterSearch: [] });
         }
-    }
+    })
     render() {
+        console.log(this.state.query)
         return (
           <div className="search-books">
             <div className="search-books-bar">

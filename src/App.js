@@ -4,23 +4,18 @@ import MainPage from "./components/MainPage";
 import SearchPage from "./components/SearchPage";
 import './App.css';
 import * as API from './components/BooksAPI';
-import PropTypes from 'prop-types'
+
 
 // Class component has a lifted state items that going to change
 // and passed to different components
 class MyReads extends React.Component {
-	static propTypes = {
-		books: PropTypes.array,
-		changeBookStatus: PropTypes.func
-    }
-	
+
 	state = {
 		books: [],
 	}
 	// Fetching all books
 	componentDidMount() {
 		this.getAllBooks();
-
 	}
 	// Func to fetch books from the bookAPI.
 	getAllBooks() {
@@ -39,7 +34,9 @@ class MyReads extends React.Component {
 			API.update(book, shelf).then(() => {
 				book.shelf = shelf;
 				this.setState(state => ({
-					books: state.books.filter(bookItem => bookItem.id !== book.id).concat([book])
+					books: state.books.filter(
+						bookItem => bookItem.id !== book.id
+					).concat([book])
 				}))
 			})
 		}
@@ -48,16 +45,12 @@ class MyReads extends React.Component {
 	render() {
 		return(
 			<div className='app'>
-				<Route exact path='/' render={() => (
-					<MainPage
-						books={this.state.books}
-						changeBookStatus={this.changeBookStatus} />
-				)}/>
-				<Route exact path="/search" render={() => (
-					<SearchPage
-						books={this.state.books}
-						changeBookStatus={this.changeBookStatus}/>
-				)} />
+				<Route exact path='/'>
+                    <MainPage books={this.state.books} changeBookStatus={this.changeBookStatus} />
+				</Route>
+				<Route exact path='/search'>
+                    <SearchPage books={this.state.books} changeBookStatus={this.changeBookStatus} />
+				</Route>
 			</div>
 		);
 	}
