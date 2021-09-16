@@ -24,6 +24,7 @@ const Book = ({ book, changeBookStatus, searchShelf }) => {
                 defaultValue={(book.shelf) ? book.shelf : searchShelf}
                 onChange={(e) => changeBookStatus(e, book)}
               >
+                {/* Move to...'s value has been changed */}
                 <option value="moveTo" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
