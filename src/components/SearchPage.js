@@ -1,10 +1,10 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-// import { debounce, throttle } from 'throttle-debounce';
-
 import Book from './Book';
 import * as API from './BooksAPI'
 import PropTypes from 'prop-types'
+import {debounce} from "lodash";
+
 
 // SearchPage class component with another
 // state holds its books and query string keyword
@@ -20,18 +20,12 @@ class SearchPage extends React.Component {
     }
 
 
-
-    queryEqualStateSearch = useMemo(
-    () => debounce(this.myCallBack, 300)
-  , []);
-
-    // A function to handle search query with throttle-debounce package
-    myCallBack = ((query) => {
+// A function to handle search query with .
+    queryEqualStateSearch = (query => {
         // We set the state to query's value with no spaces
         // Search books if there is a query keyword
+        this.setState({query: query});
         if(query) {
-
-            this.setState({query: query});
                 API.search(query).then(booksAfterSearch => {
                 //No error
                 if (!booksAfterSearch.error) {
@@ -62,7 +56,7 @@ class SearchPage extends React.Component {
                   value={this.state.query} // query == value
                     //  handling the written query by passing the Func to onChange.
                     //  so when change happens we get the result.
-                  onChange={event => this.queryEqualStateSearch(event.target.value)}
+                  onChange={(e)=> this.queryEqualStateSearch(e.target.value)}
                 />
               </div>
             </div>
