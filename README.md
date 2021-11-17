@@ -1,3 +1,6 @@
+Udacity Advanced Front-End Nano Degree Certificate Link:
+## https://graduation.udacity.com/confirm/ACZVDQA5
+
 ![Image of Autocrat](src/icons/logos/myReads_logo.png)
 
 [comment]: <> (![Image of Autocrat]&#40;src/icons/logos/logo2.png&#41;)
